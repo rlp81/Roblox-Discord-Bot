@@ -135,15 +135,10 @@ class ReqHandler(BaseHTTPRequestHandler):
 def tunnel():
     logging.info("Starting tunnel...")
     ngrok.set_auth_token(auth)
-    # Establish connectivity
     lis = ngrok.forward(1233, domain=tun)
-
-    # Output ngrok url to console
-
     logging.info(f"Ingress established at {lis.url()}")
     time.sleep(1)
     server()
-    # Keep the listener alive
     try:
         while True:
             pass
