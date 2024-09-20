@@ -7,7 +7,7 @@ import ngrok
 import configparser
 import threading
 from discord.ext import commands, tasks
-
+guildids = [0] # ADD YOUR GUILD/SERVER ID HERE
 conf = configparser.ConfigParser()
 confile = conf.read("config.conf")
 auth = str(conf.get("config", "auth"))
@@ -16,7 +16,7 @@ tun = str(conf.get("config", "tunnel"))
 psw = str(conf.get("config", "password"))
 url = "https://"+tun
 
-bot = discord.Bot(debug_guilds=[866127811000401921])
+bot = discord.Bot(debug_guilds=[guildids])
 
 format = "%(asctime)s: %(message)s"
 logging.basicConfig(format=format, level=logging.INFO, datefmt="%H:%M:%S")
